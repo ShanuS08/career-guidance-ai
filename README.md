@@ -19,5 +19,3 @@ Rule-based classification system using keyword matching for:
 - Python
 - Flask
 - HTML
-
-## 📁 Project Structure
