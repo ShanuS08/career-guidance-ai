@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CareerAI</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+/* BACKGROUND */
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, #1e3a8a, #2563eb);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* GLASS CARD */
+.container {
+    width: 420px;
+    padding: 30px;
+
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    color: white;
+}
+
+/* TITLE */
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+p {
+    text-align: center;
+    font-size: 13px;
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+
+/* INPUT */
+input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: rgba(255,255,255,0.2);
+    color: white;
+}
+
+input::placeholder {
+    color: #e0e7ff;
+}
+
+input:focus {
+    outline: none;
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+
+    background: white;
+    color: #1e3a8a;
+
+    border: none;
+    border-radius: 8px;
+
+    font-weight: 600;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #e0e7ff;
+}
+
+/* RESULT */
+.result {
+    margin-top: 20px;
+    padding: 15px;
+
+    border-radius: 10px;
+    background: rgba(255,255,255,0.2);
+
+    text-align: center;
+}
+
+.career {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.score {
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>CareerAI</h1>
+    <p>AI-powered career recommendation</p>
+
+    <form action="/predict" method="post">
+
+        <input type="text" name="skills" placeholder="Enter your skills (Python, SQL)">
+        <input type="text" name="interests" placeholder="Enter your interests (AI, Web)">
+
+        <button type="submit">Analyze</button>
+
+    </form>
+
+    {% if career %}
+    <div class="result">
+        <div class="career">{{ career }}</div>
+        <div class="score">Confidence: {{ score }}%</div>
+    </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
